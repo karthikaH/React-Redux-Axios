@@ -3,11 +3,13 @@
  */
 
 import 'regenerator-runtime/runtime';
-import { all, takelatest } from 'redux-saga/effects';
+import { all, takeLatest } from 'redux-saga/effects';
+import actionTypes from '../actions';
+import fetchCaughtBySagaDataSaga from './fetchCaughtBySagaDataSaga';
 
 function* rootSaga() {
   yield all([
-    takelatest(),
+    takeLatest(actionTypes.FETCH_CAUGHT_BY_SAGA, fetchCaughtBySagaDataSaga),
     // TODO: action type, saga inside takelatest
   ]);
 }

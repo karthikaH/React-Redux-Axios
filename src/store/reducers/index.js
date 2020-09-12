@@ -14,7 +14,10 @@
  */
 
 import { combineReducers } from 'redux';
+import caughtBySagaReducer from './caughtBySagaReducer';
 
-const rootReducer = combineReducers({});
+const rootReducer = combineReducers({
+  caughtBySaga: caughtBySagaReducer,
+});
 
 export default rootReducer;

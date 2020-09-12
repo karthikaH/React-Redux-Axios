@@ -12,10 +12,13 @@ app.use(
   })
 );
 
-app.post('api/v1/actionCaughtBySaga', (req, res) => {
-  const { body } = req;
+app.post('/api/v1/actionCaughtBySaga/', (req, res) => {
+  const {
+    body: { params },
+  } = req;
   res.status(200).send({
-    type: body.type,
+    actionDispatched: params.actionDispatched,
+    actionInSaga: params.actionInSaga,
     middleware: 'Saga',
     using: 'Hooks',
   });

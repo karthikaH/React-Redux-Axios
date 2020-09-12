@@ -18,3 +18,10 @@ npm run dev
 # run the node server for APIs
 npm run server
 ```
+
+```sh
+# run the chrome browser without CORS
+# so that we will be able to hit the API running in a different origin
+# on mac
+open -n -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --user-data-dir="/tmp/chrome_dev_test" --disable-web-security
+```

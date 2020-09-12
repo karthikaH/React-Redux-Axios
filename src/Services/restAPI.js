@@ -5,7 +5,7 @@
 import axios from 'axios';
 
 const instance = axios.create({
-  baseURL: 'https://localhost:3002/api/v1', // our server url
+  baseURL: 'http://localhost:3002/api/v1', // our server url
 });
 
 const restAPIRequest = (url, verb, params = null) => {
