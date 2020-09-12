@@ -1,5 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
+import { Provider } from 'react-redux';
+import store from './store/configureStore';
 
 // JSX just translating those HTML tags into React.createElement calls
 /** 
@@ -14,10 +17,14 @@ import ReactDOM from 'react-dom';
 
 const App = () => {
   return (
-    <div>
+    <Provider store={store}>
       <h1>Welcome!</h1>
-    </div>
+    </Provider>
   );
+};
+
+App.propTypes = {
+  store: PropTypes.object.isRequired,
 };
 
 ReactDOM.render(React.createElement(App), document.getElementById('root'));
