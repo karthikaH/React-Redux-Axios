@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import { Provider } from 'react-redux';
 import store from './store/configureStore';
+import AppRoot from './containers';
 
 // JSX just translating those HTML tags into React.createElement calls
 /** 
@@ -18,7 +19,7 @@ import store from './store/configureStore';
 const App = () => {
   return (
     <Provider store={store}>
-      <h1>Welcome!</h1>
+      <AppRoot />
     </Provider>
   );
 };
