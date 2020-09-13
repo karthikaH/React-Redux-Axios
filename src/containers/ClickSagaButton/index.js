@@ -8,9 +8,13 @@ import actionTypes from '../../store/actions';
 import createAction from '../../store/actions/createAction';
 
 function ClickSagaButton() {
-  const { actionDispatched, actionInSaga, middleware, using } = useSelector(
-    (state) => state.caughtBySaga
-  );
+  const {
+    actionDispatched,
+    actionInSaga,
+    middleware,
+    using,
+    setBySimpleAction,
+  } = useSelector((state) => state.caughtBySaga);
   const dispatch = useDispatch();
 
   const handleBtnClick = () => {
@@ -19,6 +23,14 @@ function ClickSagaButton() {
     });
     dispatch(fetchCaughtBySaga);
   };
+
+  const handleSimpleActionBtnClick = () => {
+    const simpleAction = createAction(actionTypes.SIMPLE_ACTION, {
+      setBySimpleAction: 'Set by an action without interaction with middleware',
+    });
+    dispatch(simpleAction);
+  };
+
   return (
     <>
       <h3>Click the button to see</h3>
@@ -54,6 +66,12 @@ function ClickSagaButton() {
             Component is using: <strong>{using}</strong>
           </li>
         </ul>
+      )}
+      <button onClick={handleSimpleActionBtnClick}>
+        Click to dispatch an action without any middleware
+      </button>
+      {setBySimpleAction && (
+        <p>Now a simple action has been dispatched to store</p>
       )}
     </>
   );
